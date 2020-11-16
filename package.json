@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/AlgoRen/Pool-Service-Website/issues"
   },
-  "homepage": "https://github.com/AlgoRen/Pool-Service-Website#readme"
+  "homepage": "https://github.com/AlgoRen/Pool-Service-Website#readme",
+  "dependencies": {
+    "prettier": "^2.1.2"
+  }
 }
