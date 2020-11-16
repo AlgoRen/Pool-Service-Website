@@ -9,18 +9,27 @@ body {
     margin: 0;
     line-height: 1.6;
   }
-  
-  #nav-container p {
-    font-size: 1.2em;
-    text-align: center;
-    padding: 10px;
+
+  #showcase {
+      margin: 0;
+      padding: 0;
+      background: url('../img/showcase.jpg') no-repeat center/cover;
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      overflow-y: hidden;
   }
+
+  /* h1 {
+      padding: 0;
+      margin: 0;
+  } */
   
+  /* Nav styles */
   nav {
     height: 80px;
     width: 100%;
-    background-color: #333;
-    color: #eee;
+    background-color: rgba(27, 95, 0, 0.747);
     position: fixed;
   }
 
@@ -44,42 +53,35 @@ body {
     align-items: center;
     text-decoration: none;
     padding: 0;
-    color: #eee;
+    color: rgb(253, 253, 253);
+    font-size: 1.2em;
   }
   nav li:hover {
-    background-color: #444;
+    background-color: rgba(68, 68, 68, 0.425);
+    height: 80px;
   }
   nav a#openup {
     display: none;
   }
+  nav a#logo {
+    display: none;
+}
 
   /* Tablet size or narrow window width using a stretched button layout for nav */
   @media screen and (max-width: 1200px) {
-    nav {
-        /* text-align: center; */
-        height: 10%;
-        font-size: 0.7em;
-    }
+
     #nav-container {
         display: flex;
         flex-direction: row;
         text-align: center;
-        font-size: 1.2em;
     }
-    .nav-item {
-        padding: 1em;
-        margin: 1em;
-      }
+
   }
 
 
 /* Tablet size or narrow window width using a stretched button layout for nav */
   @media screen and (max-width: 781px) {
-    nav {
-        text-align: center;
-        height: 30%;
-        font-size: 0.7em;
-    }
+
     #nav-container {
         display: flex;
         padding: 0em;
@@ -95,16 +97,19 @@ body {
         text-align: center;
         width: 100%;
         text-indent: 25px;
-        background: #333;
         border-bottom: 1px solid #555;
       }
       #branding {
           order: 5;
+          background-color: rgba(71, 61, 139, 0.747);
       }
+
   }
   
   /* For mobile screen and to trigger mobile menu */
   @media screen and (max-width: 580px) {
+
+    /* Nav styles */
     nav {
         height: auto;
         border-bottom: 0;
@@ -117,14 +122,10 @@ body {
         width: 100%;
         float: left;
         position: relative;
-
       }
 
     .nav-item a {
-      text-align: left;
-      width: 100%;
-      text-indent: 25px;
-      background: #333;
+      /* background: #333; */
       border-bottom: 1px solid #555;
     }
     .nav-item a:hover {
@@ -145,18 +146,19 @@ body {
       top: 2em;
     }
     nav a#openup {
-        font-size: 2em;
+        font-size: 1em;
         text-decoration: none;
         display: block;
         color: white;
-        background-color: #333;
+        background-color: rgba(27, 95, 0, 0.747);
         width: 100%;
+        margin: auto;
         padding: 1em 0em;
         position: relative;
     }
 
     nav a#logo {
-        font-size: 0.5;
+        font-size: 1em;
         text-decoration: none;
         color: white;
         background-color: #333;
