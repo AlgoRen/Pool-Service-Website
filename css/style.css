@@ -18,7 +18,7 @@ body {
   overflow-y: hidden; */
 }
 
-#poolContainer {
+#homeContainer {
   background: url("../img/showcase.jpg") no-repeat center/cover;
   margin-top: calc(-100vh + 80px);
   display: grid;
@@ -53,7 +53,7 @@ body {
 }
 
 /* Second row of poolContainer */
-#poolSummary {
+#homeSummary {
   grid-gap: 1em;
   font-size: 0.7em;
   grid-column: col / span 4;
@@ -89,12 +89,12 @@ body {
 /** End of first row poolContainer element styles */
 
 /** Start of third row poolContainer element styles */
-#secondImageContainer {
+#firstImageContainer {
   /* Row start and row end, column start and column end */
   grid: 1, 1;
 }
 
-#thirdImageContainer {
+#secondImageContainer {
   /* Row start and row end, column start and column end */
   grid: 1, 2;
 }
