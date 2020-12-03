@@ -61,7 +61,7 @@ body {
   margin: auto;
 }
 
-/* First row of poolContainer */
+/* First row of homeContainer */
 #welcomeSection {
   grid-column: col / span 4;
   display: grid;
@@ -69,7 +69,7 @@ body {
   grid-template-rows: subgrid;
 }
 
-/* Second row of poolContainer */
+/* Second row of homeContainer */
 #homeSummary {
   grid-gap: 1em;
   font-size: 0.7em;
@@ -79,7 +79,7 @@ body {
   flex-direction: row;
 }
 
-/* Third row of poolContainer */
+/* Third row of homeContainer */
 #highlights {
   font-size: 0.9em;
   grid-column: col / span 4;
@@ -89,7 +89,29 @@ body {
   grid-template-rows: subgrid;
 }
 
-/** Start of first row poolContainer element styles */
+/* First row of workContainer */
+.pageTitleBox {
+  grid-column: 1 / span 4;
+  grid-row: row 1;
+}
+
+/* Middle rows (row 2 - 5) */
+.pageContent {
+  grid-column: 3 / span 2;
+  grid-row: row 2 / span 3;
+}
+
+.sub-nav-container {
+  grid-column: 1 / 3;
+  grid-row: row 2 / span 3;
+}
+
+.pageSummary {
+  grid-column: 1 / span 4;
+  grid-row: row 5;
+}
+
+/** Start of first row homeContainer element styles */
 /* Logo styles */
 #logo {
   /* height: auto; */
@@ -122,11 +144,17 @@ body {
 }
 /** End of third row poolContainer element styles */
 
+/** Start of first row workContainer element styles **/
+.pageTitle {
+}
+
+/** End of first row workContainer element styles **/
+
 /* Image styles */
-img {
+/* img {
   display: block;
   height: 350px;
-}
+} */
 
 /* Nav styles */
 nav {
