@@ -26,24 +26,25 @@ body {
   grid-template-columns: repeat(4, [col] auto);
   grid-template-rows: repeat(3, [row] auto);
   background-color: rgba(71, 65, 60, 0.1);
-  color: #444;
 }
 
 #poolContainer {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: auto;
   background-color: rgba(142, 235, 185, 0.5);
 }
 
-#workContainer {
+.workContainer {
+  margin: 2em;
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(3, [col] auto);
   grid-template-rows: repeat(5, [row] auto);
-  background-color: royalblue;
-  border: 1px solid red;
-  color: #333;
+  background-color: rgba(142, 235, 185, 0.5);
+  border: 1px solid white;
+  color: initial;
+  font-weight: bolder;
 }
 
 .box {
@@ -59,6 +60,10 @@ body {
   color: #444;
   padding: 0 1em;
   margin: auto;
+}
+
+.hidden {
+  display: none;
 }
 
 /* First row of homeContainer */
@@ -93,22 +98,132 @@ body {
 .pageTitleBox {
   grid-column: 1 / span 4;
   grid-row: row 1;
+  display: flex;
+  justify-content: center;
+  /* ? Styles */
+  background-color: skyblue;
 }
 
 /* Middle rows (row 2 - 5) */
 .pageContent {
   grid-column: 3 / span 2;
-  grid-row: row 2 / span 3;
+  grid-row: row 2 / span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: subgrid;
+  height: 50vh;
+  overflow: scroll;
 }
+
+#poolSectionTitle {
+  /* ? Positioning and Layout */
+  grid-column: 1 / span 3;
+  grid-row: row 1;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0.5em;
+  /* ? Styles */
+  font-size: 1.5em;
+  background-color: skyblue;
+}
+
+#poolSectionArea {
+  grid-column: 1;
+  grid-row: row 2 / span 2;
+  padding: 0.5em 1em;
+  background-color: rgba(142, 235, 185, 0.2);
+}
+
+#poolSectionGallery,
+#deckSectionGallery {
+  grid-column: 2 / span 3;
+  grid-row: row 2 / auto;
+  display: grid;
+  /* grid-template-columns: repeat(2, [col] auto);
+  grid-template-rows: repeat(4, [row] 500px); */
+  /* height: 50vh; */
+}
+
+/* TODO: Beginning, Testing out masonry effect for gallery  */
+:root {
+  counter-reset: masonry;
+}
+.masonry {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(3, minmax(auto, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));
+  /* grid-auto-rows: 0; */
+  border: 1px solid red;
+  /* margin: 2em; */
+}
+
+.masonry-item {
+  border-radius: 5px;
+  background-color: #eee;
+  border-radius: 5px;
+  /* overflow: hidden; */
+}
+
+.masonry-item,
+.masonry-item img {
+  position: relative;
+  /* ? Use height and width percentage if you want 
+  ? to take up full width of masonry-item */
+  height: 100%;
+  width: 100%;
+}
+
+.masonry-item:after {
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.5);
+  content: counter(masonry);
+  counter-increment: masonry;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.1s ease-in;
+}
+
+.masonry-item:hover:after {
+  font-size: 30px;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+/* TODO: Ending, Testing out masonry effect for gallery  */
 
 .sub-nav-container {
   grid-column: 1 / 3;
-  grid-row: row 2 / span 3;
+  grid-row: row 2 / auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+
+  margin: 0 1em;
 }
 
+.sub-nav li p:hover {
+  color: rgb(167, 255, 179);
+}
+
+.active {
+  background-color: rgb(20, 91, 172);
+  border-style: inset;
+  border: 3px solid yellow;
+}
+
+/* Last row of workContainer/homeContainer */
 .pageSummary {
   grid-column: 1 / span 4;
-  grid-row: row 5;
+  grid-row: row 4;
+  height: 200px;
+  margin: auto;
 }
 
 /** Start of first row homeContainer element styles */
@@ -125,9 +240,9 @@ body {
   grid-row: 1;
   grid-column: 2 / 4;
 }
-/** End of first row poolContainer element styles */
+/** End of first row homeContainer element styles */
 
-/** Start of third row poolContainer element styles */
+/** Start of third row homeContainer element styles */
 #firstImageContainer {
   /* Row start and row end, column start and column end */
   grid: 1, 1;
@@ -142,10 +257,22 @@ body {
   /* Row start and row end, column start and column end */
   grid: 1, 3;
 }
-/** End of third row poolContainer element styles */
+/** End of third row homeContainer element styles */
 
 /** Start of first row workContainer element styles **/
 .pageTitle {
+  /* ? Positioning and sizing */
+  text-align: center;
+  width: 50vw;
+  padding: 0em 5em;
+  flex: 2 1 4;
+  /* ? Text Styles */
+  font-size: 2.4em;
+  font-style: italic;
+  color: azure;
+  letter-spacing: 5px;
+  /* text-decoration: underline; */
+  word-spacing: 30px;
 }
 
 /** End of first row workContainer element styles **/
@@ -156,12 +283,38 @@ body {
   height: 350px;
 } */
 
+/** Start of first row workContainer element styles **/
+.sub-nav {
+  /* ? Positioning and sizing */
+  width: 20vw;
+  padding: 0em 2em;
+  flex: 2 1 1;
+  align-self: center;
+  /* ? Text Styles */
+  font-size: 1.9em;
+}
+
+.sub-nav-description {
+  margin: 0 auto;
+  padding: 5%;
+}
+
+li p {
+  width: 100%;
+  text-align: center;
+  background-color: steelblue;
+  color: white;
+  border: 1px solid white;
+}
+/** End of first row workContainer element styles **/
+
 /* Nav styles */
 nav {
   height: 80px;
   width: 100%;
   background-color: rgba(27, 95, 0, 0.747);
   position: fixed;
+  z-index: 10;
 }
 
 #nav-container {
@@ -204,6 +357,40 @@ nav a#logo {
     display: flex;
     flex-direction: row;
     text-align: center;
+  }
+  .pageContent {
+    background-color: skyblue;
+    height: 100vh;
+  }
+
+  #poolSectionArea,
+  #poolSectionGallery {
+  }
+
+  /* TODO: Beginning, Testing out masonry effect for gallery  */
+
+  .masonry {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
+    height: 50vh;
+    border: 1px solid red;
+    /* margin: 2em; */
+  }
+
+  /* TODO: Ending, Testing out masonry effect for gallery  */
+}
+
+@media screen and (min-height: 1000px) {
+  /* #workContainer {
+    max-height: 70vh;
+  } */
+  .pageTitleBox,
+  .pageContent,
+  .sub-nav-container,
+  .pageSummary {
+    max-height: 900px;
   }
 }
 

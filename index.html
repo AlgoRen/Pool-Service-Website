@@ -19,15 +19,15 @@
         <nav class="cf">
           <ul class="cf" id="nav-container">
             <li class="nav-item" id="branding">
-              <a href="#showcase">3 ABN Pools Inc.</a>
+              <a href="#homeContainer">3 ABN Pools Inc.</a>
             </li>
             <li class="nav-item">
-              <a href="#pools" title="View the type of pools we do."
+              <a href="#poolContainer" title="View the type of pools we do."
                 >Our Pools</a
               >
             </li>
             <li class="nav-item">
-              <a href="#decks" title="View the decks we can make for you."
+              <a href="#decksContainer" title="View the decks we can make for you."
                 >Our Decks</a
               >
             </li>
@@ -91,7 +91,7 @@
           <img
             id="brandImage"
             class="highlightsImage"
-            src="https:placekitten.com/150/150"
+            src="https:placekitten.com/350/350"
           />
         </section>
       </div>
@@ -112,9 +112,11 @@
     <!-- Pools Page -->
     <div id="poolContainer">
       <!-- Work Section - shown by default -->
-      <div id="workContainer">
+      <div class="workContainer">
         <section class="pageTitleBox">
-          <h3 class="pageTitle">Our [Pool][Work]</h3>
+          <h3 class="pageTitle">Our 
+            <span class="pageHeader">Pool</span>
+            <span class="sectionHeader">Work</span>
         </section>
         <main class="pageContent">
           <h4 id="poolSectionTitle">See the process!</h4>
@@ -134,8 +136,64 @@
               </li>
             </ol>
           </div>
-          <picture id="poolSectionGallery">
-            <img
+          <picture id="poolSectionGallery" class="masonry">
+            <div class="masonry-item">
+              <img
+                src="https://unsplash.it/200/400?image=1"
+                alt="Masonry Brick #1"
+                class="masonry-content"
+              />
+            </div>
+            <div class="masonry-item">
+              <img
+                src="https://unsplash.it/700/600?image=2"
+                alt="Masonry Brick #2"
+                class="masonry-content"
+              />
+            </div>
+            <div class="masonry-item">
+              <img
+                src="https://unsplash.it/700/400?image=3"
+                alt="Masonry Brick #3"
+                class="masonry-content"
+              />
+            </div>
+            <div class="masonry-item">
+              <img
+                src="https://unsplash.it/700/500?image=4"
+                alt="Masonry Brick #4"
+                class="masonry-content"
+              />
+            </div>
+            <div class="masonry-item">
+              <img
+                src="https://unsplash.it/700/700?image=5"
+                alt="Masonry Brick #5"
+                class="masonry-content"
+              />
+            </div>
+            <div class="masonry-item">
+              <img
+                src="https://unsplash.it/700/300?image=6"
+                alt="Masonry Brick #6"
+                class="masonry-content"
+              />
+            </div>
+            <div class="masonry-item">
+              <img
+                src="https://unsplash.it/700/500?image=7"
+                alt="Masonry Brick #7"
+                class="masonry-content"
+              />
+            </div>
+            <div class="masonry-item">
+              <img
+                src="https://unsplash.it/700/650?image=8"
+                alt="Masonry Brick #8"
+                class="masonry-content"
+              />
+            </div>
+            <!-- <img
               src="https://placekitten.com/150/250"
               alt="image 1"
               class="galleryImage"
@@ -155,32 +213,163 @@
               alt="image 4"
               class="galleryImage"
             />
+            <img
+              src="https://placekitten.com/150/250"
+              alt="image 5"
+              class="galleryImage"
+            />
+            <img
+              src="https://placekitten.com/350/250"
+              alt="image 6"
+              class="galleryImage"
+            /> -->
           </picture>
         </main>
         <aside class="sub-nav-container">
           <ol class="sub-nav">
-            <li class="nav-item" id="poolWork">Work</li>
-            <li class="nav-item" id="poolMaterial">Material</li>
-            <li class="nav-item" id="poolStyle">Style</li>
+            <li class="nav-item" id="poolWork"><p class="active">Work</p></li>
+            <li class="nav-item" id="poolMaterial"><p>Material</p></li>
+            <li class="hidden" id="poolStyle"><p>Style</p></li>
           </ol>
           <p class="sub-nav-description">
-            View our pool style, material, and the type of work we do!
+            Browse our pool work or pool materials.
           </p>
         </aside>
         <article class="pageSummary">
-          [Filled with possible h and p tag and link to contact info.] Lorem
-          ipsum dolor, sit amet consectetur adipisicing elit. Harum, odit
-          veniam. Voluptate cum, excepturi consequatur veritatis perspiciatis
-          rerum ullam optio?
+          <h5>Page Summary</h5>
+          <p>
+            [Filled with possible h and p tag and link to contact info.] Lorem
+            ipsum dolor, sit amet consectetur adipisicing elit. Harum, odit
+            veniam. Voluptate cum, excepturi consequatur veritatis perspiciatis
+            rerum ullam optio?
+          </p>
+          <p>Lorem ipsum dolor sit amet.</p>
+          <p>Lorem ipsum dolor sit amet.</p>
         </article>
       </div>
       <!-- Material Section -->
-      <div id="materialContainer">Shown on click of material</div>
+      <div id="materialContainer" class="hidden">
+        Shown on click of material
+      </div>
       <!-- Style Section  -->
-      <div id="styleContainer">Shown on click of style</div>
+      <div id="styleContainer" class="hidden">Shown on click of style</div>
     </div>
-    <!-- Decks Section -->
-    <!-- Styles Section -->
+    <!-- Decks Page -->
+    <div id="decksContainer">
+      <!-- Work Section - shown by default -->
+      <div class="workContainer">
+        <section class="pageTitleBox">
+          <h3 class="pageTitle">Our 
+            <span id="pageHeader">Deck</span>
+            <span id="sectionHeader">Work</span>
+        </section>
+        <main class="pageContent">
+          <h4 id="poolSectionTitle">We will aid you to find the look, feel, and durability that works for you.</h4>
+          <div id="poolSectionArea">
+            <ol>
+              <li class="list1">
+                Step 1. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Modi, optio.
+              </li>
+              <li class="list2">
+                Step 2. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Id, in!
+              </li>
+              <li class="list3">
+                Step 3. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Sunt, est!
+              </li>
+            </ol>
+          </div>
+          <picture id="deckSectionGallery" class="masonry">
+            <div class="masonry-item">
+              <img
+                src="https://unsplash.it/500/400?image=9"
+                alt="Decks Picture #1"
+                class="masonry-content"
+              />
+            </div>
+            <div class="masonry-item">
+              <img
+                src="https://unsplash.it/200/300?image=10"
+                alt="Decks Picture #2"
+                class="masonry-content"
+              />
+            </div>
+            <div class="masonry-item">
+              <img
+                src="https://unsplash.it/700/700?image=11"
+                alt="Decks Picture #3"
+                class="masonry-content"
+              />
+            </div>
+            <div class="masonry-item">
+              <img
+                src="https://unsplash.it/300/300?image=12"
+                alt="Decks Picture #4"
+                class="masonry-content"
+              />
+            </div>
+            <div class="masonry-item">
+              <img
+                src="https://unsplash.it/700/700?image=13"
+                alt="Decks Picture #5"
+                class="masonry-content"
+              />
+            </div>
+            <div class="masonry-item">
+              <img
+                src="https://unsplash.it/700/300?image=14"
+                alt="Decks Picture #6"
+                class="masonry-content"
+              />
+            </div>
+            <div class="masonry-item">
+              <img
+                src="https://unsplash.it/700/500?image=15"
+                alt="Decks Picture #7"
+                class="masonry-content"
+              />
+            </div>
+            <div class="masonry-item">
+              <img
+                src="https://unsplash.it/300/650?image=16"
+                alt="Decks Picture #8"
+                class="masonry-content"
+              />
+            </div>
+          </picture>
+        </main>
+        <aside class="sub-nav-container">
+          <ol class="sub-nav">
+            <li class="nav-item" id="deckWork"><p class="active">Work</p></li>
+            <li class="nav-item" id="deckMaterial"><p>Material</p></li>
+            <li class="hidden" id="deckStyle"><p>Style</p></li>
+          </ol>
+          <p class="sub-nav-description">
+            Browse our pool work or pool materials.
+          </p>
+        </aside>
+        <article class="pageSummary">
+          <h5>Page Summary</h5>
+          <p>
+            [Filled with possible h and p tag and link to contact info.] Lorem
+            ipsum dolor, sit amet consectetur adipisicing elit. Harum, odit
+            veniam. Voluptate cum, excepturi consequatur veritatis perspiciatis
+            rerum ullam optio?
+          </p>
+          <p>Lorem ipsum dolor sit amet.</p>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </article>
+      </div>
+      <!-- Material Section -->
+      <div id="materialContainer" class="hidden">
+        Shown on click of material
+      </div>
+      <!-- Style Section  -->
+      <div id="styleContainer" class="hidden">Shown on click of style</div>
+    </div>
+    <!-- Styles Page - None for now -->
 
     <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -188,5 +377,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="js/main.js"></script>
+    <script src="js/event.js"></script>
   </body>
 </html>
