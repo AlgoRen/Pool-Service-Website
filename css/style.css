@@ -1,25 +1,36 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans&family=PT+Sans+Caption:wght@400;700&display=swap");
+/* [ FONT ]*/
+
+@font-face {
+  font-family: Raleway-SemiBold;
+  src: url("../contact/fonts/raleway/Raleway-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: Raleway-Bold;
+  src: url("..contact/fonts/raleway/Raleway-Bold.ttf");
+}
+
+@font-face {
+  font-family: Raleway-Black;
+  src: url("..contact/fonts/raleway/Raleway-Black.ttf");
+}
 
 body {
-  font-family: "PT Sans ", sans-serif;
-  background-color: rgb(20, 91, 172);
-  color: darkgoldenrod;
+  font-family: Raleway-Black, "PT Sans ", sans-serif;
+  background-color: rgba(142, 235, 185, 0.5);
+  color: black;
   margin: 0;
   line-height: 1.6;
 }
 
 #showcase {
-  /* margin: 0;
-  padding: 0; */
-
-  /* width: 100%; */
   height: 100vh;
-  /* position: relative;
-  overflow-y: hidden; */
 }
 
 #homeContainer {
   background: url("../img/showcase.jpg") no-repeat center/cover;
+  margin: 0;
   margin-top: calc(-100vh + 80px);
   display: grid;
   grid-gap: 10px;
@@ -32,18 +43,30 @@ body {
   display: flex;
   flex-direction: column;
   height: auto;
-  background-color: rgba(142, 235, 185, 0.5);
 }
 
 .workContainer {
-  margin: 2em;
+  margin: 1em;
+
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(3, [col] auto);
   grid-template-rows: repeat(5, [row] auto);
-  background-color: rgba(142, 235, 185, 0.5);
+  /* ? Styles  */
+  background: #00f260; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #0575e6,
+    #00f260
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #0576e6ab,
+    #00f26173
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   border: 1px solid white;
-  color: initial;
+  color: inherit;
   font-weight: bolder;
 }
 
@@ -126,6 +149,7 @@ body {
   /* ? Styles */
   font-size: 1.5em;
   background-color: skyblue;
+  font-family: Raleway-Semibold;
 }
 
 #poolSectionArea {
@@ -221,22 +245,25 @@ body {
 /* Last row of workContainer/homeContainer */
 .pageSummary {
   grid-column: 1 / span 4;
-  grid-row: row 4;
-  height: 200px;
+  grid-row: 4 / span 3;
+  height: 300px;
   margin: auto;
 }
 
 /** Start of first row homeContainer element styles */
 /* Logo styles */
 #logo {
-  /* height: auto; */
+  text-shadow: 3px 3px 5px black;
   margin: auto;
   grid-row: 1;
   grid-column: 1;
+  padding: 0.5em;
 }
 
 #brandStatement {
-  /* height: auto; */
+  font-family: Raleway-Black;
+  color: inherit;
+  text-shadow: 2px 2px 8px rgb(9, 66, 139);
   grid-row: 1;
   grid-column: 2 / 4;
 }
@@ -267,6 +294,7 @@ body {
   padding: 0em 5em;
   flex: 2 1 4;
   /* ? Text Styles */
+  font-family: Raleway-Black;
   font-size: 2.4em;
   font-style: italic;
   color: azure;
@@ -312,7 +340,19 @@ li p {
 nav {
   height: 80px;
   width: 100%;
-  background-color: rgba(27, 95, 0, 0.747);
+  /* background-color: rgba(27, 95, 0, 0.747); */
+  background: #373b44; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #4286f494,
+    #373b445d
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #4286f4d5,
+    #373b449a
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   position: fixed;
   z-index: 10;
 }
@@ -351,20 +391,88 @@ nav a#logo {
   display: none;
 }
 
-/* Tablet size or narrow window width using a stretched button layout for nav */
+/* Laptop screen any desktop that is not high-resolution or ultra wide */
 @media screen and (max-width: 1200px) {
-  #nav-container {
+  .workContainer {
+    /* grid-template-columns: repeat(3, 1fr 2fr);
+    grid-template-rows: subgrid; */
+    /* grid-auto-rows: 1fr; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, auto);
+  }
+
+  .pageTitleBox {
+    grid-column: 1 / span 4;
+    grid-row: 1 / span 1;
+  }
+  .sub-nav-container {
+    grid-column: 1 / span 4;
+    grid-row: 2 / span 1;
+    display: flex;
+  }
+
+  .sub-nav {
+    order: 4;
+    width: 100%;
+    padding: 0;
     display: flex;
     flex-direction: row;
-    text-align: center;
   }
+
+  .sub-nav > li {
+    justify-content: space-around;
+  }
+
+  .sub-nav li p {
+    padding: 0em 3em;
+    width: auto;
+  }
+  .sub-nav-description {
+    margin: 1em auto;
+    padding: 0;
+
+    font-size: 1.5em;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  }
+
   .pageContent {
+    grid-column: 1 / span 4;
+    grid-row: 3 / span 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto 3fr;
+
     background-color: skyblue;
     height: 100vh;
   }
 
-  #poolSectionArea,
+  #poolSectionTitle {
+    grid-row: 1 / span 1;
+  }
+
+  #poolSectionArea {
+    grid-column: 1 / span 4;
+    grid-row: 2 / span 1;
+  }
+
   #poolSectionGallery {
+    grid-column: 1 / span 4;
+    grid-row: 3 / span 1;
+    /* height: 100%; */
+    grid-template-columns: repeat(auto-fit, minmax(auto, 1fr));
+    grid-auto-rows: max-content;
+  }
+
+  .pageSummary {
+    grid-row: 5 / span 1;
+  }
+
+  #nav-container {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
   }
 
   /* TODO: Beginning, Testing out masonry effect for gallery  */
@@ -372,13 +480,32 @@ nav a#logo {
   .masonry {
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
-    height: 50vh;
+    /* Use grid-auto-rows: 0; for flush design */
+    grid-auto-rows: 0;
+    /* height: 100%; */
     border: 1px solid red;
     /* margin: 2em; */
+    background-color: thistle;
   }
 
+  .masonry-item {
+    height: 100%;
+    width: 100%;
+    overflow-y: hidden;
+    background-color: transparent;
+  }
+
+  .masonry-item,
+  .masonry-item img {
+    position: relative;
+    height: auto;
+    width: auto;
+  }
+
+  /* Just remove class later */
+  .masonry-item:after {
+    content: none;
+  }
   /* TODO: Ending, Testing out masonry effect for gallery  */
 }
 
@@ -390,13 +517,37 @@ nav a#logo {
   .pageContent,
   .sub-nav-container,
   .pageSummary {
-    max-height: 900px;
+    max-height: 500px;
   }
 }
 
-/* Tablet size or narrow window width using a stretched button layout for nav */
+/* Tablet size or narrow window width */
 @media screen and (max-width: 781px) {
+  body {
+    width: 100vw;
+  }
+
+  #homeContainer {
+    grid-template-columns: repeat(2, [col] 1fr);
+    grid-template-rows: 1fr;
+  }
+
+  #welcomeSection {
+    grid-column: col / span;
+  }
+
+  #homeSummary {
+    grid-column: col / span;
+    flex-direction: column;
+  }
+
+  #highlights {
+    grid-column: col / span 2;
+    grid-template-columns: 1fr;
+    grid-gap: 2em 0;
+  }
   #nav-container {
+    width: 100vw;
     display: flex;
     padding: 0em;
     margin: 0;
@@ -404,18 +555,17 @@ nav a#logo {
     flex-wrap: wrap;
     /* justify-content: space-between; */
   }
-  .nav-item {
-    flex-grow: 1;
+  #nav-container a {
+    justify-content: stretch;
   }
   nav a {
-    text-align: center;
     width: 100%;
     text-indent: 25px;
     border-bottom: 1px solid #555;
   }
   #branding {
-    order: 5;
-    background-color: rgba(71, 61, 139, 0.747);
+    /* order: 5; */
+    /* background-color: rgba(71, 61, 139, 0.747); */
   }
 }
 
