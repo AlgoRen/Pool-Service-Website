@@ -8,12 +8,17 @@
 
 @font-face {
   font-family: Raleway-Bold;
-  src: url("..contact/fonts/raleway/Raleway-Bold.ttf");
+  src: url("../contact/fonts/raleway/Raleway-Bold.ttf");
 }
 
 @font-face {
   font-family: Raleway-Black;
-  src: url("..contact/fonts/raleway/Raleway-Black.ttf");
+  src: url("../contact/fonts/raleway/Raleway-Black.ttf");
+}
+
+@font-face {
+  font-family: Raleway-Thin;
+  src: url("../contact/fonts/raleway/Raleway-Thin.ttf");
 }
 
 body {
@@ -53,16 +58,16 @@ body {
   grid-template-columns: repeat(3, [col] auto);
   grid-template-rows: repeat(5, [row] auto);
   /* ? Styles  */
-  background: #00f260; /* fallback for old browsers */
+  background: #e0e0e073; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to top,
     #0575e6,
-    #00f260
+    #e0e0e073
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to top,
     #0576e6ab,
-    #00f26173
+    #e0e0e073
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   border: 1px solid white;
@@ -71,7 +76,7 @@ body {
 }
 
 .box {
-  background-color: rgba(142, 235, 185, 0.25);
+  background-color: #0576e69e;
   color: #fff;
   border-radius: 5px;
   padding: 20px;
@@ -80,8 +85,10 @@ body {
 
 .box .box {
   background-color: rgba(204, 204, 204, 0.5);
-  color: #444;
-  padding: 0 1em;
+  font-family: Raleway-Semibold, "PT Sans ", sans-serif;
+  color: rgb(8, 8, 8);
+  text-shadow: 2px 2px 8px rgb(208, 215, 224);
+  padding: 1em;
   margin: auto;
 }
 
@@ -107,14 +114,27 @@ body {
   flex-direction: row;
 }
 
+#brandImage {
+  width: 20em;
+}
+
 /* Third row of homeContainer */
 #highlights {
+  text-align: center;
   font-size: 0.9em;
   grid-column: col / span 4;
   grid-row: row 3;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: subgrid;
+}
+
+.highlightsImage {
+  max-width: 20em;
+}
+
+.highlightsImage > p {
+  margin: auto;
 }
 
 /* First row of workContainer */
@@ -138,13 +158,14 @@ body {
   overflow: scroll;
 }
 
-#poolSectionTitle {
+#poolSectionTitle,
+#deckSectionTitle {
   /* ? Positioning and Layout */
-  grid-column: 1 / span 3;
+  grid-column: 1 / 4;
   grid-row: row 1;
   text-align: center;
-  margin: 0;
-  margin-bottom: 10px;
+  margin: 10px 0;
+  /* margin-bottom: 10px; */
   padding: 0.5em;
   /* ? Styles */
   font-size: 1.5em;
@@ -152,42 +173,69 @@ body {
   font-family: Raleway-Semibold;
 }
 
-#poolSectionArea {
+#poolSectionArea,
+#deckSectionArea {
   grid-column: 1;
   grid-row: row 2 / span 2;
   padding: 0.5em 1em;
-  background-color: rgba(142, 235, 185, 0.2);
+  margin: 1em;
+
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+#poolSectionArea ol,
+#deckSectionArea ol {
+  text-align: center;
+  list-style: none;
+  font-family: Raleway-Bold;
+}
+
+#poolSectionArea ol h4,
+#deckSectionArea ol h4 {
+  font-family: Raleway-Thin;
 }
 
 #poolSectionGallery,
 #deckSectionGallery {
+  grid-column: 2 / 4;
+  grid-row: 3 / 4;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(3, minmax(auto, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
+
+  margin: 1em 10px;
+  padding: 1em;
+
+  background-color: rgb(255 250 240 / 73%);
+}
+/* #poolSectionGallery,
+#deckSectionGallery {
   grid-column: 2 / span 3;
   grid-row: row 2 / auto;
   display: grid;
-  /* grid-template-columns: repeat(2, [col] auto);
-  grid-template-rows: repeat(4, [row] 500px); */
-  /* height: 50vh; */
+  width: 100%;
+  grid-template-columns: repeat(2, [col] auto);
+  grid-template-rows: repeat(4, [row] 500px);
+  height: 50vh;
+} */
+
+#deckContainer {
+  display: flex;
+  flex-direction: column;
+  height: auto;
 }
 
 /* TODO: Beginning, Testing out masonry effect for gallery  */
 :root {
   counter-reset: masonry;
 }
-.masonry {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(3, minmax(auto, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));
-  /* grid-auto-rows: 0; */
-  border: 1px solid red;
-  /* margin: 2em; */
-}
 
 .masonry-item {
   border-radius: 5px;
   background-color: #eee;
   border-radius: 5px;
-  /* overflow: hidden; */
+  /* overflow-y: hidden; */
 }
 
 .masonry-item,
@@ -199,7 +247,7 @@ body {
   width: 100%;
 }
 
-.masonry-item:after {
+/* .masonry-item:after {
   font-weight: bold;
   background-color: rgba(0, 0, 0, 0.5);
   content: counter(masonry);
@@ -214,7 +262,7 @@ body {
   justify-content: center;
   align-items: center;
   transition: all 0.1s ease-in;
-}
+} */
 
 .masonry-item:hover:after {
   font-size: 30px;
@@ -230,6 +278,7 @@ body {
   justify-content: start;
 
   margin: 0 1em;
+  background-color: floralwhite;
 }
 
 .sub-nav li p:hover {
@@ -246,8 +295,23 @@ body {
 .pageSummary {
   grid-column: 1 / span 4;
   grid-row: 4 / span 3;
-  height: 300px;
+  height: auto;
   margin: auto;
+}
+
+.pageSummary > p {
+  width: 80vw;
+  color: beige;
+  font-family: "Raleway-Thin";
+  font-size: x-large;
+}
+
+.pageSummary p span {
+  color: greenyellow;
+}
+
+#pageSummaryLinks button {
+  background-color: inherit;
 }
 
 /** Start of first row homeContainer element styles */
@@ -261,9 +325,9 @@ body {
 }
 
 #brandStatement {
-  font-family: Raleway-Black;
+  font-family: Raleway-Thin;
   color: inherit;
-  text-shadow: 2px 2px 8px rgb(9, 66, 139);
+  text-shadow: 1px 7px 4px #373b44;
   grid-row: 1;
   grid-column: 2 / 4;
 }
@@ -406,6 +470,10 @@ nav a#logo {
     grid-column: 1 / span 4;
     grid-row: 1 / span 1;
   }
+
+  .pageTitle {
+    padding: 0em 2em;
+  }
   .sub-nav-container {
     grid-column: 1 / span 4;
     grid-row: 2 / span 1;
@@ -448,16 +516,19 @@ nav a#logo {
     height: 100vh;
   }
 
-  #poolSectionTitle {
+  #poolSectionTitle,
+  #deckSectionTitle {
     grid-row: 1 / span 1;
   }
 
-  #poolSectionArea {
+  #poolSectionArea,
+  #deckSectionArea {
     grid-column: 1 / span 4;
     grid-row: 2 / span 1;
   }
 
-  #poolSectionGallery {
+  #poolSectionGallery,
+  #deckSectionGallery {
     grid-column: 1 / span 4;
     grid-row: 3 / span 1;
     /* height: 100%; */
@@ -483,9 +554,10 @@ nav a#logo {
     /* Use grid-auto-rows: 0; for flush design */
     grid-auto-rows: 0;
     /* height: 100%; */
-    border: 1px solid red;
+    /* border: 1px solid red; */
     /* margin: 2em; */
-    background-color: thistle;
+    background-color: rgba(142, 235, 185, 1);
+    /* background-color: thistle; */
   }
 
   .masonry-item {
@@ -571,6 +643,130 @@ nav a#logo {
 
 /* For mobile screen and to trigger mobile menu */
 @media screen and (max-width: 580px) {
+  * {
+    /* box-sizing: border-box; */
+  }
+
+  .workContainer {
+    margin: 0;
+  }
+
+  #homeContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    /* grid-auto-rows: 0.5fr; */
+    margin: 0;
+    /* width: 100vw; */
+  }
+
+  #showcase {
+    height: 100%;
+  }
+  #poolWork p,
+  #poolMaterial p,
+  #deckWork p,
+  #deckMaterial p {
+    padding: 0;
+  }
+
+  #welcomeSection {
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+
+  #logo {
+    height: 1em;
+    margin: 30px auto;
+    grid-column: 1 / 4;
+    /* grid-row: 1 / 1; */
+  }
+
+  #brandStatement {
+    margin-top: 0;
+    grid-column: 1 / 4;
+    grid-row: 2;
+    font-size: 0.9em;
+  }
+
+  #homeSummary {
+    grid-column: 1 / 3;
+    grid-row: 2;
+  }
+
+  #brandImage {
+    width: 100%;
+  }
+
+  #highlights {
+    grid-column: 1 / 3;
+  }
+
+  .highlightsImage {
+    max-width: 100%;
+  }
+
+  .pageContent {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1em;
+    /* display: grid;
+    height: 50vh;
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 1fr 2fr;
+    align-content: center; */
+  }
+  /* Mobile poolContainer */
+
+  .pageTitleBox .pageTitle {
+    width: 100%;
+    font-size: 1.6em;
+    padding: 0;
+  }
+
+  .sub-nav-container {
+    font-size: 0.7em;
+    text-align: center;
+  }
+
+  .sub-nav {
+    flex-direction: column;
+  }
+
+  .sub-nav > .nav-item p {
+    width: 100%;
+    margin: 0 3px;
+  }
+
+  #poolSectionTitle {
+    grid-row: 1 / 2;
+  }
+
+  #poolSectionArea {
+    grid-row: 2 / 3;
+    display: flex;
+  }
+  #poolSectionGallery {
+    grid-column: 1 / 1;
+    grid-row: 3 / 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* grid-template-rows: repeat(3, 300px); */
+  }
+
+  .masonry-item img {
+    width: 100%;
+  }
+
+  #poolSectionGallery img {
+    /* justify-self: center; */
+    width: 100%;
+    max-height: 300px;
+  }
+  /* Mobile mason gallery */
+
   /* Nav styles */
   nav {
     height: auto;
@@ -585,7 +781,6 @@ nav a#logo {
     float: left;
     position: relative;
   }
-
   .nav-item a {
     /* background: #333; */
     border-bottom: 1px solid #555;
@@ -612,7 +807,7 @@ nav a#logo {
     text-decoration: none;
     display: block;
     color: white;
-    background-color: rgba(27, 95, 0, 0.747);
+    background-color: rgb(9, 66, 139);
     width: 100%;
     margin: auto;
     padding: 1em 0em;
@@ -624,7 +819,7 @@ nav a#logo {
     text-decoration: none;
     color: white;
     background-color: #333;
-    display: inline-block;
+    display: none;
     position: absolute;
     left: 20px;
     top: 50px;
