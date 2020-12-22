@@ -1,133 +1,150 @@
 // Loading in elements
-branding = $("#branding");
 poolSectionHeader = $("#poolContainer span:last-of-Type");
 deckSectionHeader = $("#deckContainer span:last-of-Type");
 poolSectionButtons = document.querySelectorAll(".nav-item[id^='pool'] ");
 deckSectionButtons = document.querySelectorAll(".nav-item[id^='deck'] ");
-console.log(poolSectionHeader);
-console.log(poolSectionButtons);
-// Listening for button click (with DOM)
-window.onclick = (e) => {
-  // e.preventDefault();
-  // Full href of clicked on link
-  const isaNavItem = e.target.parentNode.classList.contains("nav-item");
-  if (!isaNavItem) {
-    console.log("Will be ignored");
-    return;
-  } else if (e.target.href) {
-    console.log("Target link: ", e.target.href);
-    // comparePage(e.target.href);
-  } else {
-    // Run function to toggle between work and material section
-    console.log(e.target.parentNode.id, " Section toggle");
-    console.log(
-      e.target.parentElement.nextSibling,
-      " Sibling of parent element"
-    );
-    goTo(null, e.target.parentNode.id, true);
-  }
-};
 
-// Listening for button click (with jQuery)
-$(poolSectionButtons).click((e) => {
-  e.preventDefault();
-  applyActiveToButton(e);
+const loadedPage = location.href.substring(location.href.lastIndexOf("/") + 1);
+console.log(loadedPage);
+if (loadedPage === "#homeContainer") {
+  $("#deckContainer").hide();
+  $("#poolContainer").fadeIn();
+} else {
+  $("#poolContainer").hide();
+  $("#deckContainer").fadeIn();
+}
+
+if (loadedPage === "#deckContainer") {
+  $("#poolContainer").hide();
+  $("#deckContainer").fadeIn();
+}
+
+if (loadedPage === "#poolContainer") {
+  $("#deckContainer").hide();
+  $("#poolContainer").fadeIn();
+}
+
+// Listening for button clicks for page links (with jQuery)
+$("[data-button='home-page']").click(function () {
+  console.log("home page");
+  if ($("#deckContainer").is(":visible")) {
+    $("#deckContainer").hide();
+    $("#poolContainer").fadeIn();
+  }
 });
 
-$(deckSectionButtons).click((e) => {
-  e.preventDefault();
-  applyActiveToButton(e);
+$("[data-button='pool-page']").click(function () {
+  console.log("pool page");
+  if ($("#deckContainer").is(":visible")) {
+    $("#deckContainer").hide();
+    $("#poolContainer").fadeIn();
+  }
 });
 
-// Get current page
-const comparePage = (targetPage) => {
-  // Page the user is on.
-  let currentPage = window.location.href;
-  console.log("Current page: ", currentPage);
-  console.log("Target Page: ", targetPage);
-
-  if (targetPage === currentPage) {
-    console.log("page not redirected");
+$("[data-button='deck-page']").click(function () {
+  console.log("deck page");
+  if ($("#poolContainer").is(":visible")) {
+    $("#poolContainer").hide();
+    $("#deckContainer").fadeIn();
   } else {
-    // See if the page starts with a # or contains .html in its href.
-    // If so do something for each of those cases.
-
-    goTo(currentPage, targetPage, false);
+    $("#poolContainer").hide();
+    $("#deckContainer").fadeIn();
   }
-};
+});
 
-const goTo = (currentPage, targetPage, section) => {
-  // Determine if page is going to a brand new page
-  // or if page is loading a new section within a page.
-  if (!section) {
-    // Send user to appropiate page
-    window.location.replace(currentPage, targetPage);
+$("[data-button='contact-page']").click(function () {
+  console.log("contact page");
+});
+
+$("[data-button='portfolio-page']").click(function () {
+  console.log("portfolio page");
+});
+// Listening for button clicks of the sections (with jQuery)
+// $(poolSectionButtons).click(() => {
+//   console.log(this);
+// });
+
+// $(deckSectionButtons).click(() => {
+//   console.log(this);
+// });
+
+// Listening for button clicks of the end of page button (with jQuery)
+$("[data-button='moveToDeckPage']").click(function () {
+  if ($("#poolContainer").is(":visible")) {
+    $("#poolContainer").hide();
+    $("#deckContainer").fadeIn();
   } else {
-    // Determine what page section. Either pool or deck.
-    // Add and remove active class to change button look and hide/unhide content.
-    console.log("Will just load section");
-    changeHeader(targetPage);
+    $("#deckContainer").hide();
+    $("#poolContainer").fadeIn();
   }
-};
+});
 
-// Determine how section information will be replaced on page:
-// Either by hidding and unhiding the html structure
-// or dynamically replacing the elements within the page...
-// This will be fun, and may be better for reduced initial load times?
-
-const changeHeader = (page) => {
-  console.log(page);
-  switch (page) {
-    case "poolMaterial":
-      poolSectionHeader[0].innerText = "Material";
-      break;
-    case "poolWork":
-      poolSectionHeader[0].innerText = "Work";
-      break;
-    case "deckMaterial":
-      deckSectionHeader[0].innerText = "Material";
-      break;
-    case "deckWork":
-      deckSectionHeader[0].innerText = "Work";
-      break;
-    default:
-      break;
+$("[data-button='moveToPoolPage']").click(function () {
+  if ($("#poolContainer").is(":visible")) {
+    $("#poolContainer").hide();
+    $("#deckContainer").fadeIn();
+  } else {
+    $("#deckContainer").hide();
+    $("#poolContainer").fadeIn();
   }
+});
+
+// Does the scrolling to top of page if necessary
+// $("html, body").animate(
+//   {
+//     scrollTop: $("#poolContainer").offset().top - 20, //#DIV_ID is an example. Use the id of your destination on the page
+//   },
+//   "slow"
+// );
+
+// Only handles the changing of pages.
+function togglePage() {}
+
+// Only handles the toggling of sections
+const toggleSections = () => {
+  console.log("Registering click");
+
+  $(
+    "#poolContainer .workContainer, #poolContainer .materialContainer"
+  ).toggle();
+
+  // $(
+  //   "#deckContainer .workContainer, #deckContainer .materialContainer"
+  // ).toggle();
 };
 
-const toggleSections = (show) => {
-  // if workContainer does not have hidden class then show()
-  // else add hidden class to materialContainer
-  // if workContainer does have hidden class then hide()
-  // and show materialContainer and remove hidden class
-};
+// Applies the Active class to section buttons.
+const applyActiveToButton = (e) => {};
 
-const applyActiveToButton = (e) => {
-  poolSectionButtons.forEach((button) => {
-    // Does this button equal the clicked on li?
-    console.log(button.id, " the child element of button");
-    console.log(button.children[0], " the p tag");
-    if (button.id === e.target.parentElement.id) {
-      console.log(true);
-      $(button.children[0]).addClass("active");
-    } else {
-      console.log(false);
-      $(button.children[0]).removeClass("active");
-    }
-    // Add hidden class from this elements parent container
-    // Remove class from the sibling parent container
+// INITIATE THE FOOTER
+siteFooter();
+// COULD BE SIMPLIFIED FOR THIS PEN BUT I WANT TO MAKE IT AS EASY TO PUT INTO YOUR SITE AS POSSIBLE
+$(window).resize(function () {
+  siteFooter();
+});
+
+function siteFooter() {
+  var siteContent = $("#site-content");
+  var siteContentHeight = siteContent.height();
+  var siteContentWidth = siteContent.width();
+
+  var siteFooter = $("#site-footer");
+  var siteFooterHeight = siteFooter.height();
+  var siteFooterWidth = siteFooter.width();
+
+  console.log("Content Height = " + siteContentHeight + "px");
+  console.log("Content Width = " + siteContentWidth + "px");
+  console.log("Footer Height = " + siteFooterHeight + "px");
+  console.log("Footer Width = " + siteFooterWidth + "px");
+
+  siteContent.css({
+    "margin-bottom": siteFooterHeight + 50,
   });
-  deckSectionButtons.forEach((button) => {
-    // Does this button equal the clicked on li?
-    console.log(button, " in this function");
-    console.log(button.id, " the child element of button");
-    console.log(button.children[0], " the p tag");
-    if (button.id === e.target.parentElement.id) {
-      console.log(true);
-      $(button.children[0]).addClass("active");
-    } else {
-      console.log(false);
-      $(button.children[0]).removeClass("active");
-    }
-  });
-};
+}
+
+// $("button[data-button='moveToDeckPage']").click(function () {
+//   console.log("Going to get mula today...");
+// });
+// $("button[data-button='moveToPoolPage']").click(function () {
+//   console.log("Going to get a lot of mula today...");
+// });
