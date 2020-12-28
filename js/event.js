@@ -1,17 +1,15 @@
-// Loading in elements
-poolSectionHeader = $("#poolContainer span:last-of-Type");
-deckSectionHeader = $("#deckContainer span:last-of-Type");
-poolSectionButtons = document.querySelectorAll(".nav-item[id^='pool'] ");
-deckSectionButtons = document.querySelectorAll(".nav-item[id^='deck'] ");
-
+// Checking to see what page is loaded in.
 const loadedPage = location.href.substring(location.href.lastIndexOf("/") + 1);
-console.log(loadedPage);
+
+// Displaying the correct pages and sections on initial page loads.
 if (loadedPage === "#homeContainer") {
   $("#deckContainer").hide();
   $("#poolContainer").fadeIn();
+  $(".materialContainer").hide();
 } else {
   $("#poolContainer").hide();
   $("#deckContainer").fadeIn();
+  $(".materialContainer").hide();
 }
 
 if (loadedPage === "#deckContainer") {
@@ -26,7 +24,6 @@ if (loadedPage === "#poolContainer") {
 
 // Listening for button clicks for page links (with jQuery)
 $("[data-button='home-page']").click(function () {
-  console.log("home page");
   if ($("#deckContainer").is(":visible")) {
     $("#deckContainer").hide();
     $("#poolContainer").fadeIn();
@@ -34,7 +31,6 @@ $("[data-button='home-page']").click(function () {
 });
 
 $("[data-button='pool-page']").click(function () {
-  console.log("pool page");
   if ($("#deckContainer").is(":visible")) {
     $("#deckContainer").hide();
     $("#poolContainer").fadeIn();
@@ -42,7 +38,6 @@ $("[data-button='pool-page']").click(function () {
 });
 
 $("[data-button='deck-page']").click(function () {
-  console.log("deck page");
   if ($("#poolContainer").is(":visible")) {
     $("#poolContainer").hide();
     $("#deckContainer").fadeIn();
@@ -59,14 +54,27 @@ $("[data-button='contact-page']").click(function () {
 $("[data-button='portfolio-page']").click(function () {
   console.log("portfolio page");
 });
-// Listening for button clicks of the sections (with jQuery)
-// $(poolSectionButtons).click(() => {
-//   console.log(this);
-// });
 
-// $(deckSectionButtons).click(() => {
-//   console.log(this);
-// });
+// Listening for button clicks of the sections (with jQuery)
+$(".poolMaterial").click(function (e) {
+  $(".workContainer").hide();
+  $(".materialContainer").fadeIn();
+});
+
+$(".poolWork").click(function (e) {
+  $(".materialContainer").hide();
+  $(".workContainer").fadeIn();
+});
+
+$(".deckMaterial").click(function (e) {
+  $(".workContainer").hide();
+  $(".materialContainer").fadeIn();
+});
+
+$(".deckWork").click(function (e) {
+  $(".materialContainer").hide();
+  $(".workContainer").fadeIn();
+});
 
 // Listening for button clicks of the end of page button (with jQuery)
 $("[data-button='moveToDeckPage']").click(function () {
@@ -89,33 +97,12 @@ $("[data-button='moveToPoolPage']").click(function () {
   }
 });
 
-// Does the scrolling to top of page if necessary
-// $("html, body").animate(
-//   {
-//     scrollTop: $("#poolContainer").offset().top - 20, //#DIV_ID is an example. Use the id of your destination on the page
-//   },
-//   "slow"
-// );
+// ? Things that may be done later:
+// 1) Using jQuery to apply the Active class to section buttons.
+// 2) Does the scrolling to top of page if necessary
 
-// Only handles the changing of pages.
-function togglePage() {}
-
-// Only handles the toggling of sections
-const toggleSections = () => {
-  console.log("Registering click");
-
-  $(
-    "#poolContainer .workContainer, #poolContainer .materialContainer"
-  ).toggle();
-
-  // $(
-  //   "#deckContainer .workContainer, #deckContainer .materialContainer"
-  // ).toggle();
-};
-
-// Applies the Active class to section buttons.
-const applyActiveToButton = (e) => {};
-
+// ? Footer provided by: Austin Paquette
+// ? Codepen to footer: https://codepen.io/pqt/pen/bNByOj
 // INITIATE THE FOOTER
 siteFooter();
 // COULD BE SIMPLIFIED FOR THIS PEN BUT I WANT TO MAKE IT AS EASY TO PUT INTO YOUR SITE AS POSSIBLE
@@ -138,13 +125,6 @@ function siteFooter() {
   console.log("Footer Width = " + siteFooterWidth + "px");
 
   siteContent.css({
-    "margin-bottom": siteFooterHeight + 50,
+    "margin-bottom": siteFooterHeight + 80,
   });
 }
-
-// $("button[data-button='moveToDeckPage']").click(function () {
-//   console.log("Going to get mula today...");
-// });
-// $("button[data-button='moveToPoolPage']").click(function () {
-//   console.log("Going to get a lot of mula today...");
-// });

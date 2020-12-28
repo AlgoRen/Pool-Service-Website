@@ -27,7 +27,7 @@
 
 body,
 html {
-  /* height: 100%; */
+  height: 100%;
   font-family: Raleway-SemiBold, sans-serif;
 }
 
@@ -184,10 +184,10 @@ iframe {
   align-items: center;
   padding: 15px;
   background: #d867c6;
-  background: -webkit-linear-gradient(45deg, #c77ff2, #e8519e);
-  background: -o-linear-gradient(45deg, #c77ff2, #e8519e);
-  background: -moz-linear-gradient(45deg, #c77ff2, #e8519e);
-  background: linear-gradient(45deg, #c77ff2, #e8519e);
+  background: -webkit-linear-gradient(45deg, #5679e9, #3532db);
+  background: -o-linear-gradient(45deg, #5679e9, #3532db);
+  background: -moz-linear-gradient(45deg, #5679e9, #3532db);
+  background: linear-gradient(45deg, #5679e9, #3532db);
 }
 
 .wrap-contact100 {
@@ -195,6 +195,7 @@ iframe {
   background: #fff;
   border-radius: 2px;
   padding: 55px 95px 68px 95px;
+  border: 2px solid #00ad5f;
 }
 
 /*==================================================================
@@ -219,7 +220,19 @@ iframe {
   color: #333333;
   line-height: 1.2;
   text-align: center;
-  padding-bottom: 45px;
+  padding-bottom: 25px;
+}
+
+#contactHeader,
+#phoneNumbers {
+  text-align: center;
+  width: 100%;
+  color: #00ad5f;
+  margin: 0.5em auto;
+}
+
+#phoneNumbers span {
+  margin: 0 10px;
 }
 
 /*------------------------------------------------------------------

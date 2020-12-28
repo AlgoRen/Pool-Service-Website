@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans&family=PT+Sans+Caption:wght@400;700&display=swap");
-/* [ FONT ]*/
+
+/* [ Website FONTS ]*/
 
 @font-face {
   font-family: Raleway-Medium;
@@ -24,6 +25,21 @@
 @font-face {
   font-family: Raleway-Thin;
   src: url("../contact/fonts/raleway/Raleway-Thin.ttf");
+}
+
+@font-face {
+  font-family: Berlin-Sans-FB-Regular;
+  src: url("../contact/fonts/custom/BRLNSR.TTF");
+}
+
+@font-face {
+  font-family: Berlin-Sans-FB-Bold;
+  src: url("../contact/fonts/custom/BRLNSB.TTF");
+}
+
+@font-face {
+  font-family: RockSalt-Regular;
+  src: url("../contact/fonts/custom/RockSalt-Regular.ttf");
 }
 
 body {
@@ -134,6 +150,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: subgrid;
+  grid-column-gap: 30px;
 }
 
 .highlightsImage {
@@ -145,6 +162,7 @@ body {
 }
 
 #socialMediaContainer {
+  width: auto;
   font-size: 1.2em;
   margin: auto;
 }
@@ -185,6 +203,10 @@ body {
   font-family: Raleway-Semibold;
 }
 
+.workContainer > .pageContent > #deckSectionTitle {
+  grid-row: 1 / 1;
+}
+
 #poolSectionArea,
 #deckSectionArea {
   grid-column: 1;
@@ -195,16 +217,34 @@ body {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-#poolSectionArea ol,
-#deckSectionArea ol {
-  text-align: center;
-  list-style: none;
-  font-family: Raleway-Bold;
+.workContainer > .pageContent > #deckSectionArea {
+  grid-column: 1 / 4;
+  grid-row: 2 / 3;
 }
 
+#poolSectionArea ol,
+#poolSectionArea ul,
+#deckSectionArea ol,
+#deckSectionArea ul {
+  padding: 0;
+  text-align: center;
+  list-style: none;
+  font-family: Raleway-Bold, Arial, Helvetica, sans-serif;
+}
+
+.workContainer li,
+.materialContainer li,
 #poolSectionArea ol h4,
 #deckSectionArea ol h4 {
-  font-family: Raleway-Thin;
+  font-family: Raleway-Thin, Cambria, "Times New Roman", serif;
+}
+
+.materialContainer li {
+  padding-bottom: 10px;
+}
+
+.materialContainer li span {
+  font-family: Raleway-Bold, Arial, Helvetica, sans-serif;
 }
 
 #poolSectionGallery,
@@ -222,6 +262,32 @@ body {
   background-color: rgb(255 250 240 / 73%);
 }
 
+#poolSectionGallery p {
+  margin: 0;
+  padding: 1em 0;
+}
+
+#poolSectionGallery h4 {
+  align-self: center;
+}
+
+#poolSectionGallery > .masonry-item:nth-child(3) > p,
+#poolSectionGallery > .masonry-item:nth-child(7) > p {
+  padding: 0.2em 0;
+}
+
+#deckSectionGallery {
+  grid-column: 1 / 4;
+}
+
+#deckSectionGallery > .masonry-item {
+  grid-column: 1 / 4;
+}
+
+#deckSectionGallery > .masonry-item > p {
+  text-align: center;
+}
+
 #deckContainer {
   display: flex;
   flex-direction: column;
@@ -235,7 +301,6 @@ body {
 
 .masonry-item {
   border-radius: 5px;
-  background-color: #eee;
   border-radius: 5px;
 }
 
@@ -244,7 +309,6 @@ body {
   position: relative;
   /* ? Use height and width percentage if you want 
   ? to take up full width of masonry-item */
-  height: 100%;
   width: 100%;
 }
 
@@ -254,6 +318,12 @@ body {
 }
 /* TODO: Ending, Testing out masonry effect for gallery  */
 
+.active {
+  background-color: rgb(20, 91, 172) !important;
+  border-style: inset !important;
+  border: 3px solid yellow !important;
+}
+
 .sub-nav-container {
   grid-column: 1 / 3;
   grid-row: row 2 / auto;
@@ -261,18 +331,35 @@ body {
   flex-direction: column;
   justify-content: start;
 
-  margin: 0 1em;
+  margin: 0;
   background-color: floralwhite;
+}
+
+.sub-nav {
+  /* ? Positioning and sizing */
+  width: 20vw;
+  padding: 0em 2em;
+  flex: 2 1 1;
+  align-self: center;
+  /* ? Text Styles */
+  font-size: 1.9em;
+}
+
+.sub-nav-description {
+  margin: 0 auto;
+  padding: 5%;
+}
+
+.sub-nav p {
+  width: 100%;
+  text-align: center;
+  background-color: steelblue;
+  color: white;
+  border: 1px solid white;
 }
 
 .sub-nav li p:hover {
   color: rgb(167, 255, 179);
-}
-
-.active {
-  background-color: rgb(20, 91, 172);
-  border-style: inset;
-  border: 3px solid yellow;
 }
 
 /* Last row of workContainer/homeContainer */
@@ -288,7 +375,7 @@ body {
   margin: auto;
   padding: 1em;
   color: beige;
-  font-family: "Raleway-Thin";
+  font-family: Raleway-Thin, Cambria, "Times New Roman", serif;
   font-size: x-large;
 }
 
@@ -298,7 +385,7 @@ body {
 
 /* ? Button styling for pageSummary */
 
-#pageSummaryLinks {
+.pageSummaryLinks {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -310,7 +397,7 @@ body {
   margin: 15px;
   padding: 12px 27px;
   text-align: center;
-  font-family: Raleway-Medium;
+  font-family: Raleway-Medium, Cambria, "Times New Roman", serif;
   font-size: 16px;
   letter-spacing: 1px;
   text-decoration: none;
@@ -386,7 +473,7 @@ body {
 }
 
 #brandStatement {
-  font-family: Raleway-Thin;
+  font-family: Raleway-Thin, Cambria, "Times New Roman", serif;
   color: inherit;
   text-shadow: 1px 7px 4px #373b44;
   grid-row: 1;
@@ -419,46 +506,14 @@ body {
   padding: 0em 5em;
   flex: 2 1 4;
   /* ? Text Styles */
-  font-family: Raleway-Black;
+  font-family: Raleway-Black, "PT Sans ", sans-serif;
   font-size: 2.4em;
   font-style: italic;
   color: azure;
   letter-spacing: 5px;
-  /* text-decoration: underline; */
   word-spacing: 30px;
 }
 
-/** End of first row workContainer element styles **/
-
-/* Image styles */
-/* img {
-  display: block;
-  height: 350px;
-} */
-
-/** Start of first row workContainer element styles **/
-.sub-nav {
-  /* ? Positioning and sizing */
-  width: 20vw;
-  padding: 0em 2em;
-  flex: 2 1 1;
-  align-self: center;
-  /* ? Text Styles */
-  font-size: 1.9em;
-}
-
-.sub-nav-description {
-  margin: 0 auto;
-  padding: 5%;
-}
-
-li p {
-  width: 100%;
-  text-align: center;
-  background-color: steelblue;
-  color: white;
-  border: 1px solid white;
-}
 /** End of first row workContainer element styles **/
 
 /* Nav styles */
@@ -469,13 +524,13 @@ nav {
   background: #373b44; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to top,
-    #4286f494,
-    #373b445d
+    #007bff,
+    #373b44f2
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to top,
-    #4286f4d5,
-    #373b449a
+    #007bff,
+    #373b44f2
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   position: fixed;
@@ -518,8 +573,7 @@ nav a#logo {
 
 /** FOOTER AREA **/
 
-/* NOT NEEDED, THIS IS JUST FOR THE PEN */
-@import url(//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css);
+@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
 
 #site-content {
   min-height: 100%;
@@ -534,7 +588,7 @@ nav a#logo {
 }
 
 #site-footer {
-  padding: 25px 0;
+  padding: 55px 0;
   font-size: 85%;
   background-color: #2a2a2a;
   position: fixed;
@@ -543,9 +597,6 @@ nav a#logo {
   right: 0;
   bottom: 0;
 }
-
-/* NOT NEEDED, THIS IS JUST FOR THE PEN */
-@import url(//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css);
 
 html,
 body {
@@ -557,28 +608,116 @@ body {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  /* background-image: url("http://dummyimage.com/3000x3000/D1D1D1/2A2A2A.png?text=Scroll+Down"); */
 }
 
 #site-footer {
+  justify-content: space-around;
   min-height: 20vw;
+  display: flex;
+  flex-direction: column;
   /* DID THIS SO YOU CAN SEE IT AUTOMATICALLY SCALE - SIMULATION RESPONSIVENESS */
   /* RESIZE THE WINDOW AND THEN SCROLL VERITCALLY AGAIN */
   background-size: cover;
   background-position: center;
-  background-image: url("http://dummyimage.com/1500x1500/2A2A2A/FFF.png?text=Footer+Area+(Resize+Me)");
+  background-image: url("../img/Footer_Texture.jpg");
+}
+
+#contact,
+#developedBy {
+  display: flex;
+  width: 50%;
+  align-self: center;
+  justify-content: center;
+  font-size: 1.9em;
+  color: #10c54c;
+}
+
+#contact div {
+  width: auto;
+  text-align: center;
+}
+
+#footerSocial {
+  width: auto;
+}
+
+#footerSocial a {
+  display: flex;
+  height: 100%;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-facebook-square {
+  padding-right: 50px;
+}
+
+#footerSocial a:hover {
+  color: #0575e6;
+}
+
+#developedByContainer {
+  display: flex;
+  text-decoration: none;
+}
+
+#developedBy {
+  margin: auto;
+  color: #000;
+  font-size: 1.5em;
+}
+
+#AlgorenIcon {
+  display: inline-block;
+  margin: 0;
+}
+
+#AlgorenIcon img {
+  width: 100px;
+}
+
+#Algoren {
+  padding: 1em;
+  margin: 0;
+  font-family: Berlin-Sans-FB-Regular, Arial, Helvetica, sans-serif;
+}
+
+#Algoren p {
+  background: linear-gradient(
+    to right,
+    #000000,
+    #e74c3c
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#Algoren span {
+  font-size: 1.5em;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-color: #10c54c;
+  font-family: RockSalt-Regular, Impact, Haettenschweiler, "Arial Narrow Bold",
+    sans-serif;
+  padding: 0 0.5em;
 }
 
 /* Laptop screen any desktop that is not high-resolution or ultra wide */
 @media screen and (max-width: 1200px) {
+  #highlights {
+    grid-template-columns: 1fr;
+    grid-column-gap: none;
+    grid-row-gap: 30px;
+  }
+
   .workContainer,
   .materialContainer {
-    /* grid-template-columns: repeat(3, 1fr 2fr);
-    grid-template-rows: subgrid; */
-    /* grid-auto-rows: 1fr; */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(6, auto);
+
+    margin: 0;
   }
 
   .pageTitleBox {
@@ -596,7 +735,6 @@ body {
   }
 
   .sub-nav {
-    /* order: 4; */
     width: 100%;
     margin: 0;
     padding: 0;
@@ -629,7 +767,7 @@ body {
     grid-template-rows: auto auto 3fr;
 
     background-color: skyblue;
-    height: 100vh;
+    height: auto;
   }
 
   #poolSectionTitle,
@@ -647,7 +785,6 @@ body {
   #deckSectionGallery {
     grid-column: 1 / span 4;
     grid-row: 3 / span 1;
-    /* height: 100%; */
     grid-template-columns: repeat(auto-fit, minmax(auto, 1fr));
     grid-auto-rows: max-content;
   }
@@ -669,11 +806,7 @@ body {
     grid-gap: 10px;
     /* Use grid-auto-rows: 0; for flush design */
     grid-auto-rows: 0;
-    /* height: 100%; */
-    /* border: 1px solid red; */
-    /* margin: 2em; */
     background-color: rgba(142, 235, 185, 1);
-    /* background-color: thistle; */
   }
 
   .masonry-item {
@@ -694,12 +827,14 @@ body {
     content: none;
   }
   /* TODO: Ending, Testing out masonry effect for gallery  */
+
+  #contact,
+  #developedBy {
+    width: auto;
+  }
 }
 
 @media screen and (min-height: 1000px) {
-  /* #workContainer {
-    max-height: 70vh;
-  } */
   .pageTitleBox,
   .pageContent,
   .sub-nav-container,
@@ -720,69 +855,48 @@ body {
   }
 
   #welcomeSection {
-    grid-column: col / span;
+    grid-column: 1 / 3;
   }
 
   #homeSummary {
-    grid-column: col / span;
+    grid-column: 1 / 3;
     flex-direction: column;
   }
 
   #highlights {
-    grid-column: col / span 2;
+    grid-column: 1 / 3;
     grid-template-columns: 1fr;
     grid-gap: 2em 0;
   }
   #nav-container {
-    width: 100vw;
     display: flex;
     padding: 0em;
     margin: 0;
     flex-direction: row;
     flex-wrap: wrap;
-    /* justify-content: space-between; */
-  }
-  #nav-container a {
-    justify-content: stretch;
   }
   nav a {
     width: 100%;
-    text-indent: 25px;
     border-bottom: 1px solid #555;
-  }
-  #branding {
-    /* order: 5; */
-    /* background-color: rgba(71, 61, 139, 0.747); */
   }
 }
 
 /* For mobile screen and to trigger mobile menu */
 @media screen and (max-width: 580px) {
-  * {
-    /* box-sizing: border-box; */
-  }
-
-  .workContainer,
-  .materialContainer {
-    margin: 0;
-  }
-
   #homeContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
-    /* grid-auto-rows: 0.5fr; */
     margin: 0;
-    /* width: 100vw; */
   }
 
   #showcase {
     height: 100%;
   }
-  #poolWork p,
-  #poolMaterial p,
-  #deckWork p,
-  #deckMaterial p {
+  .poolWork p,
+  .poolMaterial p,
+  .deckWork p,
+  .deckMaterial p {
     padding: 0;
   }
 
@@ -792,10 +906,8 @@ body {
   }
 
   #logo {
-    height: 1em;
     margin: 30px auto;
     grid-column: 1 / 4;
-    /* grid-row: 1 / 1; */
   }
 
   #brandStatement {
@@ -816,6 +928,7 @@ body {
 
   #highlights {
     grid-column: 1 / 3;
+    padding: 0;
   }
 
   .highlightsImage {
@@ -826,12 +939,6 @@ body {
     display: flex;
     flex-direction: column;
     padding: 0 1em;
-    /* display: grid;
-    height: 50vh;
-    width: 100%;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 1fr 2fr;
-    align-content: center; */
   }
   /* Mobile poolContainer */
 
@@ -862,6 +969,7 @@ body {
   #poolSectionArea {
     grid-row: 2 / 3;
     display: flex;
+    flex-direction: column;
   }
   #poolSectionGallery {
     grid-column: 1 / 1;
@@ -869,7 +977,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* grid-template-rows: repeat(3, 300px); */
   }
 
   .masonry-item img {
@@ -877,11 +984,25 @@ body {
   }
 
   #poolSectionGallery img {
-    /* justify-self: center; */
     width: 100%;
     max-height: 300px;
   }
-  /* Mobile mason gallery */
+
+  .pageSummaryLinks {
+    flex-direction: column;
+  }
+
+  #Algoren {
+    padding: 0;
+  }
+
+  #developedBy {
+    padding: 0 20px;
+  }
+
+  .fa-facebook-square {
+    padding-right: 20px;
+  }
 
   /* Nav styles */
   nav {
@@ -898,8 +1019,7 @@ body {
     position: relative;
   }
   .nav-item a {
-    /* background: #333; */
-    border-bottom: 1px solid #555;
+    border-bottom: 1px solid #eee;
   }
   .nav-item a:hover {
     background: #444;
@@ -915,8 +1035,8 @@ body {
     height: 30px;
     display: inline-block;
     position: absolute;
-    right: 2em;
-    top: 2em;
+    right: 3em;
+    bottom: 20px;
   }
   nav a#openup {
     font-size: 1em;
@@ -926,7 +1046,7 @@ body {
     background-color: rgb(9, 66, 139);
     width: 100%;
     margin: auto;
-    padding: 1em 0em;
+    padding: 1em;
     position: relative;
   }
 
@@ -956,5 +1076,3 @@ body {
 .cf {
   zoom: 1;
 }
-
-/* For IE 6/7 (trigger hasLayout) */
