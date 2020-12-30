@@ -183,7 +183,7 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #d867c6;
+  background: #3755dd;
   background: -webkit-linear-gradient(45deg, #5679e9, #3532db);
   background: -o-linear-gradient(45deg, #5679e9, #3532db);
   background: -moz-linear-gradient(45deg, #5679e9, #3532db);
@@ -233,6 +233,17 @@ iframe {
 
 #phoneNumbers span {
   margin: 0 10px;
+}
+
+.alert {
+  text-align: center;
+  padding: 10px;
+  background: #79c879;
+  color: #fff;
+  font-family: Raleway-Bold, Arial, Helvetica, sans-serif;
+  margin-bottom: 10px;
+  width: 100%;
+  display: none;
 }
 
 /*------------------------------------------------------------------
@@ -293,11 +304,11 @@ textarea.input100 {
   left: -1px;
   pointer-events: none;
   border: 1px solid;
-  border-color: #d867c6;
-  border-color: -webkit-linear-gradient(45deg, #c77ff2, #e8519e);
-  border-color: -o-linear-gradient(45deg, #c77ff2, #e8519e);
-  border-color: -moz-linear-gradient(45deg, #c77ff2, #e8519e);
-  border-color: linear-gradient(45deg, #c77ff2, #e8519e);
+  border-color: #08ac5f;
+  border-color: -webkit-linear-gradient(45deg, #7ff285, #08ac5f);
+  border-color: -o-linear-gradient(45deg, #7ff285, #08ac5f);
+  border-color: -moz-linear-gradient(45deg, #7ff285, #08ac5f);
+  border-color: linear-gradient(45deg, #7ff285, #08ac5f);
 
   visibility: hidden;
   opacity: 0;
@@ -356,11 +367,11 @@ textarea.input100 {
   min-width: 150px;
   height: 55px;
   border-radius: 27px;
-  background: #d867c6;
-  background: -webkit-linear-gradient(45deg, #c77ff2, #e8519e);
-  background: -o-linear-gradient(45deg, #c77ff2, #e8519e);
-  background: -moz-linear-gradient(45deg, #c77ff2, #e8519e);
-  background: linear-gradient(45deg, #c77ff2, #e8519e);
+  background: #08ac5f;
+  background: -webkit-linear-gradient(45deg, #7ff285, #08ac5f);
+  background: -o-linear-gradient(45deg, #7ff285, #08ac5f);
+  background: -moz-linear-gradient(45deg, #7ff285, #08ac5f);
+  background: linear-gradient(45deg, #7ff285, #08ac5f);
   position: relative;
   z-index: 1;
 
@@ -433,11 +444,11 @@ textarea.input100 {
 }
 
 .alert-validate .focus-input100 {
-  box-shadow: 0 5px 20px 0px rgba(250, 66, 81, 0.1);
-  -moz-box-shadow: 0 5px 20px 0px rgba(250, 66, 81, 0.1);
-  -webkit-box-shadow: 0 5px 20px 0px rgba(250, 66, 81, 0.1);
-  -o-box-shadow: 0 5px 20px 0px rgba(250, 66, 81, 0.1);
-  -ms-box-shadow: 0 5px 20px 0px rgba(250, 66, 81, 0.1);
+  box-shadow: 0 5px 20px 0px rgba(24, 177, 126, 0.1);
+  -moz-box-shadow: 0 5px 20px 0px rgba(24, 177, 126, 0.1);
+  -webkit-box-shadow: 0 5px 20px 0px rgba(24, 177, 126, 0.1);
+  -o-box-shadow: 0 5px 20px 0px rgba(24, 177, 126, 0.1);
+  -ms-box-shadow: 0 5px 20px 0px rgba(24, 177, 126, 0.1);
 }
 
 .alert-validate::before {

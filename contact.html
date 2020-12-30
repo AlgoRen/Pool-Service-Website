@@ -107,7 +107,7 @@
     </div>
     <div class="container-contact100">
       <div class="wrap-contact100">
-        <form class="contact100-form validate-form">
+        <form id="contactForm" class="contact100-form validate-form">
           <span class="contact100-form-title"> Contact Us </span>
           <h3 id="contactHeader">Or speak to us directly at</h3>
           <h4 id="phoneNumbers">
@@ -123,6 +123,7 @@
               >+1(407) 470-2510</a
             >
           </h4>
+          <div class="alert">Your message has been sent</div>
           <label class="label-input100" for="first-name">Your Name *</label>
           <div class="wrap-input100 rs1 validate-input">
             <input
@@ -136,6 +137,7 @@
           </div>
           <div class="wrap-input100 rs1 validate-input">
             <input
+              id="last-name"
               class="input100"
               type="text"
               name="last-name"
@@ -180,7 +182,7 @@
           </div>
 
           <div class="container-contact100-form-btn">
-            <button class="contact100-form-btn">
+            <button type="submit" class="contact100-form-btn">
               <span>
                 Submit
                 <i class="zmdi zmdi-arrow-right m-l-8"></i>
@@ -190,7 +192,8 @@
         </form>
       </div>
     </div>
-
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
     <!--===============================================================================================-->
     <script src="contact/vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
@@ -207,6 +210,7 @@
     <script src="contact/vendor/countdowntime/countdowntime.js"></script>
     <!--===============================================================================================-->
     <script src="contact/js/main.js"></script>
+    <script src="./js/event.js"></script>
     <!--===============================================================================================-->
     <script>
       $(function () {

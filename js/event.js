@@ -128,3 +128,70 @@ function siteFooter() {
     "margin-bottom": siteFooterHeight + 80,
   });
 }
+
+// Initialize Firebase
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+var firebaseConfig = {
+  apiKey: "AIzaSyDZsEOsX9wHMf4AzVXlhfeLgfErwpOml1w",
+  authDomain: "abn-contact-form.firebaseapp.com",
+  databaseURL: "https://abn-contact-form-default-rtdb.firebaseio.com/",
+  projectId: "abn-contact-form",
+  storageBucket: "abn-contact-form.appspot.com",
+  messagingSenderId: "447003370012",
+  appId: "1:447003370012:web:a70da1f7ba41c080d535d9",
+  measurementId: "G-GMBB7EW8S5",
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+// firebase.analytics();
+
+// Reference messages collection
+const messagesRef = firebase.database().ref("messages");
+
+// Listen for form submit
+$("#contactForm").on("submit", submitForm);
+
+function submitForm(e) {
+  e.preventDefault();
+
+  // Get values
+  const firstName = getInputVal("first-name");
+  const lastName = getInputVal("last-name");
+  const email = getInputVal("email");
+  const phone = getInputVal("phone");
+  const message = getInputVal("message");
+
+  const content = [firstName, lastName, email, phone, message];
+  console.log(content);
+
+  // Save message
+  saveMessage(firstName, lastName, email, phone, message);
+
+  // Show alert for contact form
+  $(".alert").css({ display: "block" });
+
+  // Hide alert after 5 seconds
+  setTimeout(function () {
+    $(".alert").css({ display: "none" });
+  }, 5000);
+
+  // Clear form
+  $("#contactForm")[0].reset();
+}
+
+// Function to get form values
+function getInputVal(id) {
+  return document.getElementById(id).value;
+}
+
+// Save message to firebase
+function saveMessage(firstName, lastName, email, phone, message) {
+  var newMessageRef = messagesRef.push();
+  newMessageRef.set({
+    firstName: firstName,
+    lastName: lastName,
+    email: email,
+    phone: phone,
+    message: message,
+  });
+}
